@@ -1,1 +1,3 @@
-# post05
+# runners-go
+
+Using GitLab runners for a Go project
