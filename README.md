@@ -1,3 +1,3 @@
 # runners-go
 
-Using GitLab runners for a Go project
+Github runners for a Go project
