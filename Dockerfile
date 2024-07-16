@@ -14,7 +14,7 @@ ADD ./go.sum /pro/
 
 WORKDIR /pro
 RUN go get -d -v ./...
-RUN go build main.go
+RUN go build
 # go build -o server main.go
 FROM alpine:latest
 
