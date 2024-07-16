@@ -26,5 +26,6 @@ jobs:
         echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
         docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}:latest"
         docker push "$USERNAME/${IMAGE_NAME}:latest"
-        echo "* Running Docker Image"
-        docker run ${IMAGE_NAME}:latest
+
+# echo "* Running Docker Image"
+# docker run ${IMAGE_NAME}:latest
