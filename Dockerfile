@@ -7,7 +7,7 @@ FROM golang:1.22.5-alpine AS builder
 RUN apk update && apk add --no-cache git
 
 RUN mkdir /pro
-ADD ./main.go /pro/
+ADD ./cmd/main.go /pro/
 ADD ./handlers.go /pro/
 
 ADD ./go.mod /pro/
