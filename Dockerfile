@@ -8,14 +8,14 @@ FROM golang:1.22.5-alpine AS builder
 RUN apk update && apk add --no-cache git
 
 RUN mkdir /pro
-ADD ./usePost.go /pro/
+ADD ./main.go /pro/
 
 ADD ./go.mod /pro/
 ADD ./go.sum /pro/
 
 WORKDIR /pro
 RUN go get -d -v ./...
-RUN go build -o server usePost.go
+RUN go build -o server main.go
 
 FROM alpine:latest
 
