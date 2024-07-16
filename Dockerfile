@@ -8,6 +8,7 @@ RUN apk update && apk add --no-cache git
 
 RUN mkdir /pro
 ADD ./main.go /pro/
+ADD ./handlers.go /pro/
 
 ADD ./go.mod /pro/
 ADD ./go.sum /pro/
