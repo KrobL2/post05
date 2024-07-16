@@ -3,8 +3,7 @@
 
 FROM golang:1.22.5-alpine AS builder
 
-# Install git.
-# Git is required for fetching the dependencies.
+# Install git. Git is required for fetching the dependencies.
 RUN apk update && apk add --no-cache git
 
 RUN mkdir /pro
@@ -15,8 +14,8 @@ ADD ./go.sum /pro/
 
 WORKDIR /pro
 RUN go get -d -v ./...
-RUN go build -o server main.go
-
+RUN go build main.go
+# go build -o server main.go
 FROM alpine:latest
 
 RUN mkdir /pro
