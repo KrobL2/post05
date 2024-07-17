@@ -1,22 +1,20 @@
-# docker build -t goPost .
-# docker run -it goPost
-
 FROM golang:1.22.5-alpine AS builder
 
 # Install git. Git is required for fetching the dependencies.
 RUN apk update && apk add --no-cache git
-
 RUN mkdir /pro
+
+RUN go mod download
+
 ADD ./cmd/main.go /pro/
-ADD ./handlers.go /pro/
 
 ADD ./go.mod /pro/
 ADD ./go.sum /pro/
 
 WORKDIR /pro
 RUN go get -d -v ./...
-RUN go build -o server
 # go build -o server main.go
+RUN go build -o server
 FROM alpine:latest
 
 RUN mkdir /pro
