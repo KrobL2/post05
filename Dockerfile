@@ -5,7 +5,7 @@ RUN apk update && apk add --no-cache git
 RUN mkdir /pro
 
 WORKDIR /pro
-COPY ..
+COPY . .
 RUN go mod download
 
 ADD ./cmd/main.go /pro/

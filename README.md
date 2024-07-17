@@ -1,6 +1,13 @@
-# rest-api
-RESTful server
+# RESTful server
 
+В проекте использованы:
+1. Docker
+2. Docker-compose
+3. Github runners for a Go project
+
+
+
+====
 The server is set to listen on PORT ":1234" by default, which is correct.
 
 However, when running in a Docker container, "localhost" refers to the container itself, not your host machine.
@@ -18,7 +25,3 @@ This maps the container's port 1234 to port 1234 on your host machine.
 After doing this, you should be able to access the server using:
 
 curl http://localhost:1234/time
-
-
-# runners-go
-Github runners for a Go project
