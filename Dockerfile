@@ -4,6 +4,8 @@ FROM golang:1.22.5-alpine AS builder
 RUN apk update && apk add --no-cache git
 RUN mkdir /pro
 
+WORKDIR /pro
+COPY ..
 RUN go mod download
 
 ADD ./cmd/main.go /pro/
