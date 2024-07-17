@@ -1,6 +1,8 @@
+# Server configurations
 server:
   port: 1234
   readTimeout: 5
   writeTimeout: 5
   idleTimeout: 10
 
+# Database credentials

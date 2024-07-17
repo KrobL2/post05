@@ -8,12 +8,12 @@ import (
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/krobvadim/restful-server/config"
 )
 
-// "restfull-server/package/handler"
-
 func main() {
-	config, err := LoadConfig("../configs/main.yaml")
+	config, err := config.LoadConfig("../configs/main.yaml")
 	// fmt.Print(config)
 	if err != nil {
 		log.Fatalf("Error loading configuration: %v", err)
