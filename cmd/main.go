@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/KrobL2/restful-server/config"
+	"main/config"
 )
 
 func main() {
