@@ -13,6 +13,9 @@ ADD ./cmd/main.go /pro/
 ADD ./go.mod /pro/
 ADD ./go.sum /pro/
 
+COPY configs/main.yaml
+WORKDIR /app
+
 WORKDIR /pro
 RUN go get -d -v ./...
 # go build -o server main.go
