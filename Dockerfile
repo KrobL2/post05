@@ -14,7 +14,7 @@ ADD ./go.mod /pro/
 ADD ./go.sum /pro/
 
 COPY configs/main.yaml /pro/configs/main.yaml
-WORKDIR /app
+WORKDIR /pro
 
 WORKDIR /pro
 RUN go get -d -v ./...
