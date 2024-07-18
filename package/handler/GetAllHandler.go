@@ -12,6 +12,7 @@ import (
 // GetAllHandler is for getting all data from the user database
 func GetAllHandler(rw http.ResponseWriter, r *http.Request) {
 	log.Println("GetAllHandler Serving:", r.URL.Path, "from", r.Host)
+
 	d, err := io.ReadAll(r.Body)
 	if err != nil {
 		rw.WriteHeader(http.StatusBadRequest)

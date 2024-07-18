@@ -12,6 +12,7 @@ import (
 // UpdateHandler is for updating the data of an existing user + PUT
 func UpdateHandler(rw http.ResponseWriter, r *http.Request) {
 	log.Println("UpdateHandler Serving:", r.URL.Path, "from", r.Host)
+
 	d, err := io.ReadAll(r.Body)
 	if err != nil {
 		rw.WriteHeader(http.StatusBadRequest)
