@@ -2,17 +2,18 @@ package config
 
 import (
 	"os"
+	"time"
 
 	"gopkg.in/yaml.v2"
 )
 
 type Config struct {
 	Server struct {
-		Port         string `yaml:"port"`
-		ReadTimeout  int    `yaml:"readTimeout"`
-		WriteTimeout int    `yaml:"write_timeout"`
-		IdleTimeout  int    `yaml:"idle_timeout"`
-	} `yaml:"server"`
+		Port         string        `yaml:"port"`
+		ReadTimeout  time.Duration `yaml:"read_timeout"`
+		WriteTimeout time.Duration `yaml:"write_timeout"`
+		IdleTimeout  time.Duration `yaml:"idle_timeout"`
+	} `yaml:"http_server"`
 }
 
 func LoadConfig(filename string) (*Config, error) {
