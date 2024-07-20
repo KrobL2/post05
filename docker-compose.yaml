@@ -9,3 +9,9 @@ networks:
   default:
     driver: bridge
     name: webnet
+
+
+volumes:
+  <name>: # name of volume
+
+
