@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  restfull-server:
+    image: krobvadim/gopost:latest
+    container_name: restfull-server
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
+    name: webnet
