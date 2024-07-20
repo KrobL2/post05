@@ -12,6 +12,7 @@ import (
 // AddHandler is for adding a new user
 func AddHandler(rw http.ResponseWriter, r *http.Request) {
 	log.Println("AddHandler Serving:", r.URL.Path, "from", r.Host)
+
 	d, err := io.ReadAll(r.Body)
 	if err != nil {
 		rw.WriteHeader(http.StatusBadRequest)
