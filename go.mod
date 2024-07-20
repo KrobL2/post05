@@ -1,4 +1,4 @@
-module main
+module restfull-server
 
 go 1.22.5
 

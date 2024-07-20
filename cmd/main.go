@@ -3,13 +3,12 @@ package main
 import (
 	"fmt"
 	"log"
-	"main/package/handler"
 	"net/http"
 	"os"
 	"os/signal"
+	"restfull-server/internall/config"
+	"restfull-server/package/handler"
 	"time"
-
-	"main/config"
 )
 
 func main() {
