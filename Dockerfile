@@ -9,8 +9,9 @@ RUN mkdir /pro/config
 WORKDIR /pro
 
 COPY ./cmd/main.go /pro
-COPY config/main.yaml /pro/config
-COPY go.mod /pro
+COPY ./config/main.yaml /pro/config
+COPY ./go.mod /pro
+COPY ./go.sum /pro
 
 RUN go mod download
 
