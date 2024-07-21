@@ -10,10 +10,9 @@ WORKDIR /pro
 
 COPY config/main.yaml /pro/config
 
-RUN go mod download
+COPY go.mod /pro
 
-ADD ./go.mod /pro/
-ADD ./go.sum /pro/
+RUN go mod download
 
 RUN go get -d -v ./...
 # go build -o server main.go
