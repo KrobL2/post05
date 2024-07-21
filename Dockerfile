@@ -8,8 +8,8 @@ RUN mkdir /pro/config
 
 WORKDIR /pro
 
+COPY ./cmd/main.go /pro
 COPY config/main.yaml /pro/config
-
 COPY go.mod /pro
 
 RUN go mod download
