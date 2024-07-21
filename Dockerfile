@@ -8,6 +8,7 @@ RUN mkdir /restfull-server
 WORKDIR /restfull-server
 
 COPY . .
+COPY config/main.yaml /restfull-server/config/main.yaml
 
 RUN go mod tidy
 # go build -o server main.go
@@ -16,7 +17,8 @@ RUN go build -o server ./cmd/main.go
 FROM alpine:latest
 RUN mkdir /restfull-server
 WORKDIR /restfull-server
-COPY --from=builder /restfull-server/server /restfull-server/server
-CMD ["restfull-server/server"]
+COPY --from=builder /restfull-server/server ./server
+COPY config/main.yaml /restfull-server/config/main.yaml
+CMD ["./server"]
 
 
