@@ -3,9 +3,9 @@ FROM golang:1.21-alpine AS builder
 # Install git. Git is required for fetching the dependencies.
 RUN apk update && apk add --no-cache git
 
-RUN mkdir /go/src/restfull-server
+RUN mkdir /restfull-server
 
-WORKDIR /go/src/restfull-server
+WORKDIR /restfull-server
 
 COPY . .
 
