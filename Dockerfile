@@ -16,7 +16,7 @@ RUN go build -o server ./cmd/main.go
 FROM alpine:latest
 RUN mkdir /restfull-server
 WORKDIR /restfull-server
-COPY --from=builder /go/src/restfull-server/server /go/src/restfull-server/server
+COPY --from=builder /restfull-server/server /restfull-server/server
 CMD ["/go/src/restfull-server/server"]
 
 
