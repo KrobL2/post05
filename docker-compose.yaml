@@ -1,4 +1,5 @@
 version: '3.9'
+name: test-app
 services:
   restfull-server:
     # container_name: restfull-server
