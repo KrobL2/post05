@@ -6,10 +6,9 @@ RUN apk update && apk add --no-cache git
 RUN mkdir /pro
 
 COPY ./cmd/main.go /pro
-COPY ./config ./pro
-COPY ./internal ./pro
-COPY ./package ./pro
-
+COPY ./config /pro
+COPY ./internal /pro
+COPY ./package /pro
 COPY ./go.mod /pro
 
 WORKDIR /pro
