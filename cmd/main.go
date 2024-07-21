@@ -13,12 +13,13 @@ import (
 
 func main() {
 	config, err := config.LoadConfig("/restfull-server/config/main.yaml") // Вынести в константу путь до файла конфигурации
-	fmt.Print(config)
+	fmt.Print(config == nil)
+
 	if err != nil {
 		log.Fatalf("Error loading configuration: %v", err)
 	}
 
-	PORT := ":" + config.Server.Port
+	PORT := ":" + config.HTTPServer.Port
 
 	arguments := os.Args
 	fmt.Println(arguments)
@@ -33,9 +34,9 @@ func main() {
 		Addr:         PORT,
 		Handler:      rMux,
 		ErrorLog:     nil,
-		ReadTimeout:  time.Duration(config.Server.ReadTimeout),
-		WriteTimeout: time.Duration(config.Server.WriteTimeout),
-		IdleTimeout:  time.Duration(config.Server.IdleTimeout),
+		ReadTimeout:  time.Duration(config.HTTPServer.Timeout),
+		WriteTimeout: time.Duration(config.HTTPServer.WriteTimeout),
+		IdleTimeout:  time.Duration(config.HTTPServer.IdleTimeout),
 	}
 
 	go func() {

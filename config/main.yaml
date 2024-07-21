@@ -1,14 +1,14 @@
 # Server configurations
 http_server:
   port: 8080
-  readTimeout: 5s
-  writeTimeout: 5s
-  idleTimeout: 10s
+  timeout: 5s
+  write_timeout: 5s
+  idle_timeout: 10s
 
 # Database credentials
 database:
   host: "localhost"
   port: "5432"
-  user: "your_username"
-  password: "your_password"
-  dbname: "your_database_name"
+  user: "username"
+  password: "password"
+  dbname: "database_name"

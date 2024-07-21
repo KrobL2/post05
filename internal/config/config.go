@@ -9,19 +9,23 @@ import (
 )
 
 type Config struct {
-	Server struct {
-		Port         string        `yaml:"port"`
-		ReadTimeout  time.Duration `yaml:"read_timeout"`
-		WriteTimeout time.Duration `yaml:"write_timeout"`
-		IdleTimeout  time.Duration `yaml:"idle_timeout"`
-	} `yaml:"http_server"`
-	Database struct {
-		Host     string `yaml:"host"`
-		Port     string `yaml:"port"`
-		User     string `yaml:"user"`
-		Password string `yaml:"password"`
-		DBName   string `yaml:"dbname"`
-	} `yaml:"database"`
+	HTTPServer `yaml:"http_server"`
+	DB         `yaml:"database"`
+}
+
+type HTTPServer struct {
+	Port         string        `yaml:"port"`
+	Timeout      time.Duration `yaml:"timeout"`
+	WriteTimeout time.Duration `yaml:"write_timeout"`
+	IdleTimeout  time.Duration `yaml:"idle_timeout"`
+}
+
+type DB struct {
+	Host     string `yaml:"host"`
+	Port     string `yaml:"port"`
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+	DBName   string `yaml:"dbname"`
 }
 
 func LoadConfig(filename string) (*Config, error) {
@@ -32,14 +36,14 @@ func LoadConfig(filename string) (*Config, error) {
 		return nil, err
 	}
 
-	fmt.Print(string(data))
+	fmt.Println(string(data))
 
-	err = yaml.Unmarshal(data, config)
+	err = yaml.UnmarshalStrict(data, config)
 	if err != nil {
 		return nil, err
 	}
 
-	fmt.Print(config)
+	fmt.Println(config)
 
 	return config, nil
 }
