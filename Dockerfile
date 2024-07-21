@@ -3,25 +3,20 @@ FROM golang:1.21-alpine AS builder
 # Install git. Git is required for fetching the dependencies.
 RUN apk update && apk add --no-cache git
 
-RUN mkdir /pro
+RUN mkdir /go/src/restfull-server
 
-WORKDIR /pro
+WORKDIR /go/src/restfull-server
 
-COPY ./cmd/main.go /pro
-COPY ./config /pro
-COPY ./internal /pro
-COPY ./package /pro
-COPY ./go.mod /pro
-COPY ./go.sum /pro
+COPY . .
 
 RUN go mod tidy
 # go build -o server main.go
-RUN go build -o server
+RUN go build -o server ./cmd/main.go
 
 FROM alpine:latest
-RUN mkdir /pro
-WORKDIR /pro
-COPY --from=builder /pro/server /pro/server
-CMD ["/pro/server"]
+RUN mkdir /go/src/restfull-server
+WORKDIR /go/src/restfull-server
+COPY --from=builder /go/src/restfull-server/server /go/src/restfull-server/server
+CMD ["/go/src/restfull-server/server"]
 
 
