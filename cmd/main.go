@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"restfull-server/internall/config"
+	"restfull-server/internal/config"
 	"restfull-server/package/handler"
 	"time"
 )
