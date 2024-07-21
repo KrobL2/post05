@@ -11,9 +11,10 @@ COPY ./internal ./pro
 COPY ./package ./pro
 
 COPY ./go.mod /pro
-COPY ./go.sum /pro
 
 WORKDIR /pro
+
+RUN go mod tidy
 
 RUN go get -d -v ./...
 # go build -o server main.go
