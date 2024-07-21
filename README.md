@@ -10,7 +10,6 @@
 | .github    | GitHub Actions       | yaml    |
 
 
-
 ## В проекте использованы:
 1. Docker
 2. Docker-compose
@@ -53,9 +52,13 @@ curl http://localhost:1234/time
 6. Остановка старого контейнера
 
 
+## Команды
 
+```bash
+docker compose build
+```
 
-1. docker compose build   
-2. docker run -p 80:8080 имя_образа
-
+```bash
+docker run -p 80:8080 имя_образа
+```
 Где 80 - это порт на хосте, а 8080 - это порт внутри контейнера.
