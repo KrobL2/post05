@@ -1,12 +1,14 @@
-# RESTful server
+# BarberSchedule RESTful server
 
-**ScheduleForTest** - это сервер предназначенный для работы с расписанием для добавления и удаления записей в парикмахерской.
+**BarberSchedule** - это сервис предназначенный для работы с расписанием для добавления и удаления записей в парикмахерской.
 
 ## О репозитории
 
-| Папка      | Описание                      | Язык  |
+| Папка      | Описание                     | Язык  |
 |------------|-------------------------------|-------|
-| cmd        | **Бэкенд** REST API           | Go    |
+| cmd        | **Бэкенд** REST API  | Go    |
+| .github    | GitHub Actions       | yaml    |
+
 
 
 ## В проекте использованы:
@@ -16,6 +18,9 @@
 4. Gorilla/mux
 
 
+## Про Docker:
+1) Название Image: barber_schedule
+2) Название контейнера: _
 
 ====
 The server is set to listen on PORT ":1234" by default, which is correct.

@@ -18,7 +18,7 @@ jobs:
       env:
          USERNAME: ${{ secrets.USERNAME }}
          PASSWORD: ${{ secrets.PASSWORD }}
-         IMAGE_NAME: gopost
+         IMAGE_NAME: barber_schedule
       run: |
         docker images
         docker build -t "$IMAGE_NAME" .
