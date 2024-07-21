@@ -17,6 +17,6 @@ FROM alpine:latest
 RUN mkdir /restfull-server
 WORKDIR /restfull-server
 COPY --from=builder /restfull-server/server /restfull-server/server
-CMD ["/go/src/restfull-server/server"]
+CMD ["restfull-server/server"]
 
 
