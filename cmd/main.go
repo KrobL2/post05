@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	config, err := config.LoadConfig("../config/main.yaml") // Вынести в константу путь до файла конфигурации
+	config, err := config.LoadConfig("./config/main.yaml") // Вынести в константу путь до файла конфигурации
 	// fmt.Print(config)
 	if err != nil {
 		log.Fatalf("Error loading configuration: %v", err)

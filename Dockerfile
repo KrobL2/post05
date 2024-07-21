@@ -8,22 +8,18 @@ RUN mkdir /pro/config
 
 WORKDIR /pro
 
-COPY . .
+COPY config/main.yaml /pro/config
 
 RUN go mod download
-
-ADD ./cmd/main.go /pro/
 
 ADD ./go.mod /pro/
 ADD ./go.sum /pro/
 
-COPY config/main.yaml /pro/config/main.yaml
-
 RUN go get -d -v ./...
 # go build -o server main.go
 RUN go build -o server
-FROM alpine:latest
 
+FROM alpine:latest
 RUN mkdir /pro
 COPY --from=builder /pro/server /pro/server
 WORKDIR /pro

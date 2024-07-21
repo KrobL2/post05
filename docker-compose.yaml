@@ -1,6 +1,7 @@
 version: '3.9'
 services:
   restfull-server:
+    # container_name: restfull-server
     build:
       context: .
 
