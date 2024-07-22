@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/mactsouk/restdb"
+	"github.com/KrobL2/restdb"
 )
 
 // LoggedUsersHandler returns the list of all logged in users

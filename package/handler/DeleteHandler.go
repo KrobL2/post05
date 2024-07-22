@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/KrobL2/restdb"
 	"github.com/gorilla/mux"
-	"github.com/mactsouk/restdb"
 )
 
 // DeleteHandler is for deleting an existing user + DELETE

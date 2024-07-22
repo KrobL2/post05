@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/mactsouk/restdb"
+	"github.com/KrobL2/restdb"
 )
 
 // GetAllHandler is for getting all data from the user database

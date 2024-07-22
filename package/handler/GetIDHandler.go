@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/KrobL2/restdb"
 	"github.com/gorilla/mux"
-	"github.com/mactsouk/restdb"
 )
 
 // GetIDHandler returns the ID of an existing user

@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/mactsouk/restdb"
+	"github.com/KrobL2/restdb"
 )
 
 // LoginHandler is for updating the LastLogin time of a user

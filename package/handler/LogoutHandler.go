@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/mactsouk/restdb"
+	"github.com/KrobL2/restdb"
 )
 
 // LogoutHandler is for logging out a user

@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/KrobL2/restdb"
 	"github.com/gorilla/mux"
-	"github.com/mactsouk/restdb"
 )
 
 // GetUserDataHandler + GET returns the full record of a user

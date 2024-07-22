@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/mactsouk/restdb"
+	"github.com/KrobL2/restdb"
 )
 
 // AddHandler is for adding a new user

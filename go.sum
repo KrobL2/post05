@@ -1,3 +1,5 @@
+github.com/KrobL2/restdb v0.0.0-20240722212357-63a8e72085eb h1:mGOSG4uWRtOY3Nu2EKrVXg5pwrVwnUu4CCjiUD+AQlo=
+github.com/KrobL2/restdb v0.0.0-20240722212357-63a8e72085eb/go.mod h1:9rJCl7IgP3CY5J59B2Nf0dXa45sgrX7UMc6Eho5TcgQ=
 github.com/gorilla/mux v1.8.1 h1:TuBL49tXwgrFYWhqrNgrUNEY92u81SPhu7sTdzQEiWY=
 github.com/gorilla/mux v1.8.1/go.mod h1:AKf9I4AEqPTmMytcMc0KkNouC66V3BtZ4qD5fmWSiMQ=
 github.com/lib/pq v1.10.1 h1:6VXZrLU0jHBYyAqrSPa+MgPfnSvTPuMgK+k0o5kVFWo=
