@@ -6,9 +6,8 @@ http_server:
   idle_timeout: 10s
 
 # Database credentials
-database:
-  host: "localhost"
+db:
+  dbname: "postgres"
+  host: "db" # db - это имя сервиса в docker-compose.yaml
   port: "5432"
-  user: "username"
-  password: "password"
-  dbname: "database_name"
+  user: "postgres"

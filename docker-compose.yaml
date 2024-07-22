@@ -2,9 +2,21 @@ version: '3.9'
 name: test-app
 services:
   restfull-server:
-    container_name: xbarber-app
     build:
       context: .
+    container_name: xbarber-app
+    depends_on:
+      - db
+
+  db:
+    restart: always
+    image: postgres:latest
+    container_name: xbarber-db
+    ports:
+      - "5436:5432"
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data # Путь к стандартной папке для хранения всех файлов базы данных Postgres
+
 
 networks:
   default:
