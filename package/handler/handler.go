@@ -10,33 +10,33 @@ type Handler struct{}
 
 func (h *Handler) InitRoutes() *mux.Router {
 	rMux := mux.NewRouter() // Create a new ServeMux using Gorilla
-	// Define Handler Functions
+
 	rMux.HandleFunc("/time", TimeHandler).Methods("GET")
 
 	// Register GET
-	// getMux := rMux.Methods(http.MethodGet).Subrouter()
-	rMux.HandleFunc("/getall", GetAllHandler).Methods("GET")
-	rMux.HandleFunc("/getid/{username}", GetIDHandler).Methods("GET")
-	rMux.HandleFunc("/logged", LoggedUsersHandler).Methods("GET")
-	rMux.HandleFunc("/username/{id:[0-9]+}", GetUserDataHandler).Methods("GET")
-
-	// Register POST
-	// Add User + Login + Logout
-	// postMux := rMux.Methods(http.MethodPost).Subrouter()
-	rMux.HandleFunc("/login", LoginHandler).Methods("POST")
-	rMux.HandleFunc("/logout", LogoutHandler).Methods("POST")
-	rMux.HandleFunc("/add", AddHandler).Methods("POST")
+	getMux := rMux.Methods(http.MethodGet).Subrouter()
+	getMux.HandleFunc("/getall", GetAllHandler).Methods("GET")
+	getMux.HandleFunc("/getid/{username}", GetIDHandler).Methods("GET")
+	getMux.HandleFunc("/logged", LoggedUsersHandler).Methods("GET")
+	getMux.HandleFunc("/username/{id:[0-9]+}", GetUserDataHandler).Methods("GET")
 
 	rMux.HandleFunc("/username/{id}", GetUserDataHandler).Methods("GET")
 
+	// Register POST
+	postMux := rMux.Methods(http.MethodPost).Subrouter()
+	// Add User + Login + Logout
+	postMux.HandleFunc("/login", LoginHandler).Methods("POST")
+	postMux.HandleFunc("/logout", LogoutHandler).Methods("POST")
+	postMux.HandleFunc("/add", AddHandler).Methods("POST")
+
 	// Register PUT
+	putMux := rMux.Methods(http.MethodPut).Subrouter()
 	// Update User
-	// putMux := rMux.Methods(http.MethodPut).Subrouter()
-	rMux.HandleFunc("/update", UpdateHandler).Methods("PUT")
+	putMux.HandleFunc("/update", UpdateHandler).Methods("PUT")
 
 	// DELETE
-	// deleteMux := rMux.Methods(http.MethodDelete).Subrouter()
-	rMux.HandleFunc("/username/{id:[0-9]+}", DeleteHandler).Methods("DELETE")
+	deleteMux := rMux.Methods(http.MethodDelete).Subrouter()
+	deleteMux.HandleFunc("/username/{id:[0-9]+}", DeleteHandler).Methods("DELETE")
 
 	// COMMON
 	rMux.NotFoundHandler = http.HandlerFunc(DefaultHandler)
@@ -49,7 +49,7 @@ func (h *Handler) InitRoutes() *mux.Router {
 
 /*
 
-/* package main
+/*
 
 
 
