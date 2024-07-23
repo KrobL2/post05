@@ -32,7 +32,7 @@ jobs:
 
           echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
 
-          docker buildx build --push --platform linux/arm64,linux/amd64 -t "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}/publish:tag"
+          docker buildx build --push --platform linux/arm64,linux/amd64 -t "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}/:latest"
 
 # docker tag "${IMAGE_NAME}:arm64" "$USERNAME/${IMAGE_NAME}:arm64"
 # docker push "$USERNAME/${IMAGE_NAME}:arm64"
