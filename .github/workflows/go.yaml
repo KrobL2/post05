@@ -7,36 +7,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v4
-    - uses: actions/setup-go@v4
-      with:
-        go-version: '1.21'
-        check-latest: true
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v4
+        with:
+          go-version: "1.21"
+          check-latest: true
 
-    - name: Publish Docker Image
-      env:
-         USERNAME: ${{ secrets.USERNAME }}
-         PASSWORD: ${{ secrets.PASSWORD }}
-         IMAGE_NAME: barber_schedule 
-      run: |
-        docker images
+      - name: Publish Docker Image
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          IMAGE_NAME: barber_schedule
+        run: |
+          docker images
 
-        docker buildx create --name multi-arch-builder --use --bootstrap
+          docker buildx create --name multi-arch-builder --use --bootstrap
 
-        docker buildx build --platform linux/amd64,linux/arm64 .
-        docker buildx build --load --platform linux/amd64 -t "$IMAGE_NAME":amd64 .
-        docker buildx build --load --platform linux/arm64 -t "$IMAGE_NAME":arm64 .
-       
-        docker images
+          docker buildx build --platform linux/amd64,linux/arm64 .
+          docker buildx build --load --platform linux/amd64 -t "$IMAGE_NAME":amd64 .
+          docker buildx build --load --platform linux/arm64 -t "$IMAGE_NAME":arm64 .
 
-        echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
-        
-        docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}/publish:tag"
-        docker push --platform linux/arm64,linux/amd64 "$USERNAME/${IMAGE_NAME}/publish:tag"
+          docker images
 
-        
-        
+          echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
+
+          docker buildx build --push --platform linux/arm64,linux/amd64 -t "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}/publish:tag"
+
 # docker tag "${IMAGE_NAME}:arm64" "$USERNAME/${IMAGE_NAME}:arm64"
 # docker push "$USERNAME/${IMAGE_NAME}:arm64"
+
+# docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}/publish:tag"
+# docker push --platform linux/arm64,linux/amd64 "$USERNAME/${IMAGE_NAME}/publish:tag"
 
