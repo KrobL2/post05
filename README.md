@@ -80,11 +80,18 @@ docker compose build
 ```
 
 ```bash
+docker compose up
+```
+
+```bash
 docker run -p 80:8080 имя_образа
 ```
 Где 80 - это порт на хосте, а 8080 - это порт внутри контейнера.
 
 
+```bash
+docker exec -it xbarber-app /bin/sh
+```
 
 
 

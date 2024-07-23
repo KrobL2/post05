@@ -10,7 +10,7 @@ import (
 
 type Config struct {
 	HTTPServer `yaml:"http_server"`
-	DB         `yaml:"database"`
+	DB         `yaml:"db"`
 }
 
 type HTTPServer struct {

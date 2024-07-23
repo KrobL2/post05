@@ -1,24 +1,31 @@
 version: '3.9'
 name: test-app
 services:
-  restfull-server:
+  app:
     build:
       context: .
     container_name: xbarber-app
+    ports:
+      - "8080:8080"
     depends_on:
       - db
 
   db:
-    restart: always
-    image: postgres:latest
+    image: postgres
     container_name: xbarber-db
+    environment:
+      POSTGRES_USER: mtsouk
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: restapi
     ports:
       - "5436:5432"
+    restart: always
     volumes:
-      - ./.database/postgres/data:/var/lib/postgresql/data # Путь к стандартной папке для хранения всех файлов базы данных Postgres
+      - ./postgres:/var/lib/postgresql/data/
 
+volumes:
+  postgres_data:
+    driver: local
 
-networks:
-  default:
-    driver: bridge
-    name: webnet
+# Путь к стандартной папке для хранения всех файлов базы данных Postgres
+# - ./.database/postgres/data:/var/lib/postgresql/data 
