@@ -22,7 +22,7 @@ jobs:
       run: |
         docker images
 
-        docker buildx create --name mybuilder --use --bootstrap
+        docker buildx create --name multi-arch-builder --use --bootstrap
 
         docker buildx build --platform linux/amd64,linux/arm64 .
         docker buildx build --load --platform linux/amd64 -t "$IMAGE_NAME":amd64 .
