@@ -23,7 +23,7 @@ jobs:
         docker images
 
         docker buildx create --name mybuilder --use --bootstrap
-        docker buildx build --platform linux/amd64,linux/arm64 -t "$IMAGE_NAME" .
+        docker buildx build --platform linux/amd64,linux/arm64 --load -t "$IMAGE_NAME" .
 
         docker images
 
