@@ -17,6 +17,47 @@
 4. Gorilla/mux
 
 
+
+
+## Про Github actions:
+
+Создаем файл с кодом
+
+name: Go + PostgreSQL
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v4
+    - uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+        check-latest: true
+
+    - name: Publish Docker Image
+      env:
+         USERNAME: ${{ secrets.USERNAME }}
+         PASSWORD: ${{ secrets.PASSWORD }}
+         IMAGE_NAME: barber_schedule
+      run: |
+        docker images
+        docker build -t "$IMAGE_NAME" .
+        docker images
+        echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
+        docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}:latest"
+        docker push "$USERNAME/${IMAGE_NAME}:latest"
+
+
+
+
+
+
+
 ## Про Docker:
 1) Название Image: barber_schedule
 2) Название контейнера: _
