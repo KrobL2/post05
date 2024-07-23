@@ -33,8 +33,8 @@ jobs:
 
         echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
         
-        docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}:latest"
-        docker push --platform linux/arm64,linux/amd64 "$USERNAME/${IMAGE_NAME}:latest"
+        docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}"
+        docker push --platform linux/arm64,linux/amd64 "$USERNAME/${IMAGE_NAME}/publish:tag"
 
         
         
