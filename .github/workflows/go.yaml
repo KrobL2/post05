@@ -26,7 +26,7 @@ jobs:
 
           docker buildx build --platform linux/amd64,linux/arm64 .
 
-          docker buildx inspect multiarch
+          docker buildx inspect multi-arch-builder
           docker buildx ls
 
           echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
