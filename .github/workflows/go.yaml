@@ -18,11 +18,16 @@ jobs:
       env:
          USERNAME: ${{ secrets.USERNAME }}
          PASSWORD: ${{ secrets.PASSWORD }}
-         IMAGE_NAME: barber_schedule
+         IMAGE_NAME: barber_schedule 
       run: |
         docker images
-        docker build -t "$IMAGE_NAME" .
+
+        docker buildx create --name mybuilder --use --bootstrap
+        docker buildx build --paltform linux/amd64, linux/arm64 -t "$IMAGE_NAME" .
+
         docker images
+
         echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
+        
         docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}:latest"
         docker push "$USERNAME/${IMAGE_NAME}:latest"
