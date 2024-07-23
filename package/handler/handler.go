@@ -15,7 +15,7 @@ func (h *Handler) InitRoutes() *mux.Router {
 
 	// Register GET
 	// getMux := rMux.Methods(http.MethodGet).Subrouter()
-	rMux.HandleFunc("getall", GetAllHandler).Methods("GET")
+	rMux.HandleFunc("/getall", GetAllHandler).Methods("GET")
 	rMux.HandleFunc("/getid/{username}", GetIDHandler).Methods("GET")
 	rMux.HandleFunc("/logged", LoggedUsersHandler).Methods("GET")
 	rMux.HandleFunc("/username/{id:[0-9]+}", GetUserDataHandler).Methods("GET")
