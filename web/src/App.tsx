@@ -7,7 +7,6 @@ import { ConfigProvider } from 'antd';
 
 import { Layout } from './layout';
 
-import { SwitchRoutes } from 'pages/SwitchRoutes';
 
 import { store } from './store';
 
@@ -17,7 +16,7 @@ const App: FC = () => (
       <ConfigProvider>
         <BrowserRouter>
           <Layout>
-            <SwitchRoutes />
+            <div>Test</div>
           </Layout>
         </BrowserRouter>
       </ConfigProvider>

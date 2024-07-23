@@ -6,7 +6,7 @@ import { items } from './items';
 
 const { Content, Sider } = AntLayout;
 
-export const Layout: FC = () => {
+export const Layout: FC<Props> = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -59,4 +59,9 @@ export const Layout: FC = () => {
       </AntLayout>
     </>
   );
+};
+
+
+type Props = {
+  children: React.ReactNode;
 };
