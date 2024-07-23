@@ -25,6 +25,9 @@ jobs:
         docker buildx create --name mybuilder --use --bootstrap
         docker buildx build --platform linux/amd64,linux/arm64 -t "$IMAGE_NAME" .
 
+        docker buildx build --load --platform linux/amd64 -t "$IMAGE_NAME" .
+        docker buildx build --load --platform linux/arm64 -t "$IMAGE_NAME":arm64 .
+
         docker images
 
         echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
