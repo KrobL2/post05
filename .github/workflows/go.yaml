@@ -25,14 +25,13 @@ jobs:
           docker buildx create --name multi-arch-builder --use --bootstrap
 
           docker buildx build --platform linux/amd64,linux/arm64 .
-          docker buildx build --load --platform linux/amd64 -t "$IMAGE_NAME":amd64 .
-          docker buildx build --load --platform linux/arm64 -t "$IMAGE_NAME":arm64 .
 
-          docker images
+          docker buildx inspect multiarch
+          docker buildx ls
 
           echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
 
-          docker buildx build --push --platform linux/arm64,linux/amd64 -t "$USERNAME/${IMAGE_NAME}/:latest"
+          docker buildx build --push --platform linux/arm64,linux/amd64 -t "$USERNAME/${IMAGE_NAME}:latest"
 
 # docker tag "${IMAGE_NAME}:arm64" "$USERNAME/${IMAGE_NAME}:arm64"
 # docker push "$USERNAME/${IMAGE_NAME}:arm64"
@@ -40,3 +39,6 @@ jobs:
 # docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}/publish:tag"
 # docker push --platform linux/arm64,linux/amd64 "$USERNAME/${IMAGE_NAME}/publish:tag"
 
+          
+# docker buildx build --load --platform linux/amd64 -t "$IMAGE_NAME":amd64 .
+# docker buildx build --load --platform linux/arm64 -t "$IMAGE_NAME":arm64 .
