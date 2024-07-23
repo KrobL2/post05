@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,7 +13,8 @@ import (
 )
 
 func main() {
-	config, err := config.LoadConfig("/restfull-server/config/main.yaml") // Вынести в константу путь до файла конфигурации
+	// Использовать константу из env
+	config, err := config.LoadConfig("/restfull-server/config/main.yaml")
 	fmt.Print(config == nil)
 
 	if err != nil {
@@ -54,5 +56,6 @@ func main() {
 	sig := <-sigs
 	log.Println("Quitting after signal:", sig)
 	time.Sleep(5 * time.Second)
-	s.Shutdown(nil)
+	// s.Shutdown(nil) TODO check if it works
+	s.Shutdown(context.Background())
 }
