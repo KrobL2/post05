@@ -16,7 +16,7 @@ jobs:
 
       - name: Publish Docker Image
         env:
-          USERNAME: ${{ secrets.USERNAME }}
+            USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
           IMAGE_NAME: barber_schedule
         run: |
@@ -31,19 +31,7 @@ jobs:
 
           echo "$PASSWORD" | docker login --username "$USERNAME" --password-stdin
 
-          docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}:latest"
-          docker buildx build -t "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}:latest"
-          docker buildx build --push --platform linux/arm64,linux/amd64 "$USERNAME/${IMAGE_NAME}:latest"
-
-         
-          
-
-# docker tag "${IMAGE_NAME}:arm64" "$USERNAME/${IMAGE_NAME}:arm64"
-# docker push "$USERNAME/${IMAGE_NAME}:arm64"
-
-# docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}/publish:tag"
-# docker push --platform linux/arm64,linux/amd64 "$USERNAME/${IMAGE_NAME}/publish:tag"
-
-          
-# docker buildx build --load --platform linux/amd64 -t "$IMAGE_NAME":amd64 .
-# docker buildx build --load --platform linux/arm64 -t "$IMAGE_NAME":arm64 .
+          docker buildx build --push \
+                              --platform linux/arm64,linux/amd64 \
+                              --tag "$USERNAME/${IMAGE_NAME}:latest" \
+                              .   
