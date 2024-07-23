@@ -83,3 +83,22 @@ docker compose build
 docker run -p 80:8080 имя_образа
 ```
 Где 80 - это порт на хосте, а 8080 - это порт внутри контейнера.
+
+
+
+
+
+
+
+====
+
+# build both images
+docker buildx build --platform linux/arm64,linux/amd64 .
+# load just one platform
+docker buildx build --load --platform linux/amd64 -t my-image-tag .
+# optionally load another platform with a different tag
+docker buildx build --load --platform linux/arm64 -t my-image-tag:arm64 .
+
+
+# push both platforms as one image manifest list
+docker buildx build --push --platform linux/arm64,linux/amd64 -t docker.palantir.build/publish:tag .
