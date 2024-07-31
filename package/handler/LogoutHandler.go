@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/KrobL2/restdb"
+	"restfull-server/package/restdb"
 )
 
 // LogoutHandler is for logging out a user

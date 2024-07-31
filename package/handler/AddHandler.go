@@ -5,8 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
-
-	"github.com/KrobL2/restdb"
+	"restfull-server/package/restdb"
 )
 
 // AddHandler is for adding a new user

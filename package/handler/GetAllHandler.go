@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/KrobL2/restdb"
+	"restfull-server/package/restdb"
 )
 
 // GetAllHandler is for getting all data from the user database

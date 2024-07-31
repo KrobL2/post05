@@ -5,7 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/KrobL2/restdb"
+	"restfull-server/package/restdb"
+
 	"github.com/gorilla/mux"
 )
 

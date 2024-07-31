@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/KrobL2/restdb"
+	"restfull-server/package/restdb"
 )
 
 // LoginHandler is for updating the LastLogin time of a user

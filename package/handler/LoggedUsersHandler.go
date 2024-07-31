@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/KrobL2/restdb"
+	"restfull-server/package/restdb"
 )
 
 // LoggedUsersHandler returns the list of all logged in users

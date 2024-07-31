@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/KrobL2/restdb"
+	"restfull-server/package/restdb"
 )
 
 // UpdateHandler is for updating the data of an existing user + PUT
