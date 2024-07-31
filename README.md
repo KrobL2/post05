@@ -84,8 +84,6 @@ docker exec -it xbarber-app /bin/sh
 Working with a database
 
 Creating database schema:
-- `psql -U mtsouk postgres -h 127.0.0.1 < create_db.sql`
-
 
 ```bash
 psql -U mtsouk postgres -h 0.0.0.0 -p 5436 < create_db.sql
@@ -99,5 +97,5 @@ curl -s -X GET -H 'Content-Type: application/json' -d '{"username":
 "mtsouk", "password" : "pass"}' localhost:8080/getall
 
 
-
-postgresql://postgres:password@clair_postgres:5432?sslmode=disable
+curl -s -X GET -H 'Content-Type: application/json' -d '{"username":
+"postgres", "password" : "pass"}' localhost:8080/getall
