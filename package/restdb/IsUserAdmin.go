@@ -5,8 +5,7 @@ import (
 	"log"
 )
 
-// IsUserAdmin determines whether a user is
-// an administrator or not
+// IsUserAdmin determines whether a user is an administrator or not
 func IsUserAdmin(u User) bool {
 	db := ConnectPostgres()
 	if db == nil {

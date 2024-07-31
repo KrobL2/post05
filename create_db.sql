@@ -14,7 +14,8 @@ CREATE TABLE users (
   active INT
 );
 
-INSERT INTO
-  users (username, password, lastlogin, admin, active)
-VALUES
-  ('admin', 'admin', 1620922454, 1, 1);
+INSERT INTO users (username, password, lastlogin, admin, active)
+VALUES ('admin', 'admin', 1620922454, 1, 1);
+
+/* Проверить созданных пользователей */
+SELECT * FROM users;

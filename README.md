@@ -94,8 +94,4 @@ psql -U mtsouk postgres -h 0.0.0.0 -p 5436 < create_db.sql
 ## Обращение к БД
 
 curl -s -X GET -H 'Content-Type: application/json' -d '{"username":
-"mtsouk", "password" : "pass"}' localhost:8080/getall
-
-
-curl -s -X GET -H 'Content-Type: application/json' -d '{"username":
-"postgres", "password" : "pass"}' localhost:8080/getall
+"admin", "password" : "admin"}' localhost:8080/getall
