@@ -31,7 +31,6 @@ func (h *Handler) InitRoutes() *mux.Router {
 
 	// Register PUT
 	putMux := rMux.Methods(http.MethodPut).Subrouter()
-	// Update User
 	putMux.HandleFunc("/update", UpdateHandler).Methods("PUT")
 
 	// DELETE
@@ -40,8 +39,6 @@ func (h *Handler) InitRoutes() *mux.Router {
 
 	// COMMON
 	rMux.NotFoundHandler = http.HandlerFunc(DefaultHandler)
-	// notAllowed := notAllowedHandler{}
-	// rMux.MethodNotAllowedHandler = notAllowed
 	rMux.MethodNotAllowedHandler = http.HandlerFunc(MethodNotAllowedHandler)
 
 	return rMux

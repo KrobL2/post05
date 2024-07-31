@@ -9,5 +9,6 @@ require (
 
 require (
 	github.com/KrobL2/restdb v0.0.0-20240722212357-63a8e72085eb
+	github.com/joho/godotenv v1.5.1
 	github.com/lib/pq v1.10.1 // indirect
 )

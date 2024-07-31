@@ -4,20 +4,17 @@
 
 ## О репозитории
 
-| Папка      | Описание                       |
-|------------|--------------------------------|
-| cmd        | main.go              | Go      |
-| .github    | GitHub Actions       | yaml    |
-
+| Папка   | Описание       |
+| ------- | -------------- | ---- |
+| cmd     | main.go        | Go   |
+| .github | GitHub Actions | yaml |
 
 ## В проекте использованы:
+
 1. Docker
 2. Docker-compose
 3. Github runners
 4. Gorilla/mux
-
-
-
 
 ## Про Github actions:
 
@@ -28,8 +25,8 @@ name: Go + PostgreSQL
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+build:
+runs-on: ubuntu-latest
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -52,26 +49,21 @@ jobs:
         docker tag "${IMAGE_NAME}" "$USERNAME/${IMAGE_NAME}:latest"
         docker push "$USERNAME/${IMAGE_NAME}:latest"
 
-
-
-
-
-
-
 ## Про Docker:
-1) Название Image: barber_schedule
-2) Название контейнера: _
 
+1. Название Image: barber_schedule
+2. Название контейнера: \_
 
 ## Необходимые шаги для развертывания докеризированного приложения, сохраненного в репозитории Git.
+
 Шаги, необходимые для развертывания приложения зависят от окружения, основной процесс развертывания будет таким:
+
 1. Сборка приложения с использованием Docker build в каталоге с кодом приложения
 2. Тестирование образа
 3. Выгрузка образа в Registry
 4. Уведомление удаленного сервера приложений, что он может скачать образ из Registry и запустить его
 5. Перестановка порта в прокси HTTP(S)
 6. Остановка старого контейнера
-
 
 ## Команды
 
@@ -84,28 +76,18 @@ docker compose up
 ```
 
 ```bash
-docker run -p 80:8080 имя_образа
+psql -U mtsouk postgres -h 0.0.0.0 -p 5436 < create_db.sql
 ```
-Где 80 - это порт на хосте, а 8080 - это порт внутри контейнера.
-
 
 ```bash
 docker exec -it xbarber-app /bin/sh
 ```
 
+## Обращение к БД
+
+curl -s -X GET -H 'Content-Type: application/json' -d '{"username":
+"mtsouk", "password" : "pass"}' localhost:8080/getall
 
 
 
-
-====
-
-# build both images
-docker buildx build --platform linux/arm64,linux/amd64 .
-# load just one platform
-docker buildx build --load --platform linux/amd64 -t my-image-tag .
-# optionally load another platform with a different tag
-docker buildx build --load --platform linux/arm64 -t my-image-tag:arm64 .
-
-
-# push both platforms as one image manifest list
-docker buildx build --push --platform linux/arm64,linux/amd64 -t docker.palantir.build/publish:tag .
+postgresql://postgres:password@clair_postgres:5432?sslmode=disable

@@ -21,7 +21,7 @@ services:
       - "5436:5432"
     restart: always
     volumes:
-      - ./.database/postgres/data:/var/lib/postgresql/data
+      - ./postgres:/var/lib/postgresql/data/
 
 volumes:
   postgres_data:
@@ -29,6 +29,3 @@ volumes:
 
 # Путь к стандартной папке для хранения всех файлов базы данных Postgres
 # - ./.database/postgres/data:/var/lib/postgresql/data 
-
-
-# - ./postgres:/var/lib/postgresql/data/

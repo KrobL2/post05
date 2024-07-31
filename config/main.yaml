@@ -1,4 +1,4 @@
-# Server configurations
+# Server configuration
 http_server:
   port: 8080
   timeout: 5s
@@ -8,6 +8,6 @@ http_server:
 # Database credentials
 db:
   dbname: "postgres"
-  host: "db" # db - это имя сервиса в docker-compose.yaml
+  host: "db"          # db - это имя сервиса в docker-compose.yaml
   port: "5432"
   user: "postgres"

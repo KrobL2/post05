@@ -24,7 +24,6 @@ func main() {
 	PORT := ":" + config.HTTPServer.Port
 
 	arguments := os.Args
-	fmt.Println(arguments)
 	if len(arguments) >= 2 {
 		PORT = ":" + arguments[1]
 	}
